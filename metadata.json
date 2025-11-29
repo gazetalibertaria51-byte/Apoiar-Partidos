@@ -1,7 +1,5 @@
 {
   "name": "Copy of Party Support Dashboard",
   "description": "A dashboard for tracking political party support in Brazil with Gov.br integration and Gemini Search grounding.",
-  "requestFramePermissions": [
-    "camera"
-  ]
+  "requestFramePermissions": []
 }
