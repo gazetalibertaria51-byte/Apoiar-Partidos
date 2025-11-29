@@ -11,7 +11,7 @@
     <!-- Tailwind CSS -->
     <script src="https://cdn.tailwindcss.com"></script>
     
-    <!-- Import Map for React -->
+    <!-- Import Map for local/preview environment -->
     <script type="importmap">
     {
       "imports": {
@@ -91,5 +91,8 @@
   </head>
   <body>
     <app-root></app-root>
+    
+    <!-- Entry Point Script for Vite Build Compatibility -->
+    <script type="module" src="/index.tsx"></script>
   </body>
 </html>
