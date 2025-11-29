@@ -139,7 +139,7 @@ const GovBrLogin: React.FC<GovBrLoginProps> = ({ isOpen, onClose, onSuccess }) =
         {/* Content */}
         <div className="flex-1 px-8 py-4 flex flex-col">
           {step === LoginStep.CPF && (
-            <div className="animate-fade-in">
+            <div className="">
               <h2 className="text-[#1351B4] font-bold text-xl mb-4">Identifique-se no gov.br</h2>
               
               <div className="mb-6">
@@ -187,7 +187,7 @@ const GovBrLogin: React.FC<GovBrLoginProps> = ({ isOpen, onClose, onSuccess }) =
           )}
 
           {step === LoginStep.PASSWORD && (
-            <div className="animate-fade-in">
+            <div className="">
               <div className="flex items-center gap-2 mb-6">
                  <div className="w-8 h-8 bg-gray-200 rounded-full flex items-center justify-center text-gray-600 font-bold text-xs">
                     {cpf.slice(0, 3)}
@@ -239,7 +239,7 @@ const GovBrLogin: React.FC<GovBrLoginProps> = ({ isOpen, onClose, onSuccess }) =
           )}
 
           {step === LoginStep.FACIAL_INSTRUCTIONS && (
-             <div className="animate-fade-in flex flex-col h-full">
+             <div className="flex flex-col h-full">
                 <h2 className="text-[#1351B4] font-bold text-xl mb-4 text-center">Reconhecimento Facial</h2>
                 
                 <div className="flex-1 flex flex-col items-center justify-center space-y-6">
@@ -269,7 +269,7 @@ const GovBrLogin: React.FC<GovBrLoginProps> = ({ isOpen, onClose, onSuccess }) =
           )}
 
           {step === LoginStep.FACIAL_SCAN && (
-            <div className="animate-fade-in flex flex-col h-full absolute inset-0 bg-white">
+            <div className="flex flex-col h-full absolute inset-0 bg-white">
                 {/* Header specifically for camera view */}
                  <div className="absolute top-0 left-0 right-0 z-20 p-4 flex justify-between items-center text-white bg-gradient-to-b from-black/50 to-transparent">
                    <span className="font-bold">Reconhecimento Facial</span>
@@ -328,7 +328,7 @@ const GovBrLogin: React.FC<GovBrLoginProps> = ({ isOpen, onClose, onSuccess }) =
           )}
 
           {step === LoginStep.SUCCESS && (
-            <div className="flex flex-col items-center justify-center h-full animate-fade-in py-10">
+            <div className="flex flex-col items-center justify-center h-full py-10">
               <div className="w-16 h-16 bg-green-100 rounded-full flex items-center justify-center mb-4">
                  <svg className="w-8 h-8 text-green-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={3} d="M5 13l4 4L19 7" />
