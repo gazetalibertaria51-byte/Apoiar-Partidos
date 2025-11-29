@@ -302,7 +302,6 @@ const GovBrLogin: React.FC<GovBrLoginProps> = ({ isOpen, onClose, onSuccess }) =
                       <div className="absolute inset-0 border-[50px] border-white/90 z-10" 
                            style={{ 
                              clipPath: "path('M 0 0 h 100% v 100% h -100% Z M 50% 20% c 15% 0 35% 10% 35% 30% v 15% c 0 20% -20% 30% -35% 30% c -15% 0 -35% -10% -35% -30% v -15% c 0 -20% 20% -30% 35% -30% Z')"
-                             // This is a rough SVG path approximation for an oval cutout, using border as the 'fill'
                            }}
                       ></div>
                       

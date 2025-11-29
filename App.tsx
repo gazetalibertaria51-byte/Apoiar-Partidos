@@ -1,4 +1,3 @@
-
 import React, { useState, useEffect } from 'react';
 import { Menu } from 'lucide-react';
 import PartyCard from './components/PartyCard';
@@ -158,16 +157,6 @@ const App: React.FC = () => {
 
   const [selectedParty, setSelectedParty] = useState<PartyDetails>(allParties[3]); // Default to something if needed
   const [currentStates, setCurrentStates] = useState<StateSupport[]>(conservadorStates);
-
-  // Handle Loader Logic
-  useEffect(() => {
-    const appRoot = document.querySelector('app-root');
-    if (appRoot) {
-      setTimeout(() => {
-        appRoot.classList.remove('loading');
-      }, 800);
-    }
-  }, []);
 
   // When selected party changes, update news
   useEffect(() => {

@@ -1,7 +1,7 @@
 
-import React from 'react';
+import React, { useState } from 'react';
 import { PartyDetails, StateSupport, SearchResult } from '../types';
-import { Loader2, LinkIcon, Globe } from 'lucide-react';
+import { Loader2, LinkIcon, Globe, MapPin } from 'lucide-react';
 
 interface PartyCardProps {
   details: PartyDetails;
@@ -24,6 +24,13 @@ const PartyCard: React.FC<PartyCardProps> = ({
   onRefreshNews,
   onBack
 }) => {
+  // State to track which images failed to load
+  const [imgErrors, setImgErrors] = useState<Record<string, boolean>>({});
+
+  const handleImgError = (code: string) => {
+    setImgErrors(prev => ({ ...prev, [code]: true }));
+  };
+
   return (
     <div className="max-w-[900px] mx-auto pb-24">
       
@@ -82,7 +89,7 @@ const PartyCard: React.FC<PartyCardProps> = ({
             {/* Right: Support Count Box */}
             <div className="md:w-[280px] bg-white rounded border border-gray-200 shadow-sm p-4 relative overflow-hidden flex flex-col justify-center">
                <div className="flex items-center gap-4 z-10">
-                  <img src="https://flagcdn.com/w80/br.png" alt="Bandeira do Brasil" className="w-12 h-auto shadow-sm" />
+                  <img src="https://flagcdn.com/w80/br.png" alt="Bandeira do Brasil" className="w-14 h-auto shadow-sm" />
                   <div className="flex flex-col">
                     <span className="text-4xl font-bold text-gray-700 leading-none">{details.totalSupport}</span>
                     <span className="text-gray-600 font-medium text-sm">apoiamento(s)</span>
@@ -104,15 +111,22 @@ const PartyCard: React.FC<PartyCardProps> = ({
               key={state.code} 
               className={`p-3 flex items-center justify-between hover:bg-gray-50 transition-colors border-b border-gray-100 last:border-0 ${index % 2 === 0 ? 'bg-white' : 'bg-gray-50/30'}`}
             >
-              <div className="flex items-center gap-3">
-                <div className="w-8 h-6 border border-gray-200 shadow-sm flex items-center justify-center bg-white overflow-hidden shrink-0 rounded-[2px]">
-                     <img 
-                      src={`https://flagcdn.com/w40/br-${state.code.toLowerCase()}.png`} 
-                      alt={`Bandeira de ${state.name}`}
-                      title={state.name}
-                      className="w-full h-full object-cover"
-                    />
-                </div>
+              <div className="flex items-center gap-4">
+                {/* Flag with Fallback */}
+                {imgErrors[state.code] ? (
+                  <div className="w-9 h-6 bg-gray-200 rounded-[2px] flex items-center justify-center shadow-sm">
+                    <MapPin size={14} className="text-gray-400" />
+                  </div>
+                ) : (
+                  <img 
+                    src={`https://flagcdn.com/w80/br-${state.code.toLowerCase()}.png`} 
+                    alt={`Bandeira de ${state.name}`}
+                    title={state.name}
+                    onError={() => handleImgError(state.code)}
+                    className="w-9 h-auto shadow-sm rounded-[2px] object-cover border border-gray-100"
+                  />
+                )}
+                
                 <span className="text-gray-700 font-bold text-sm">{state.name}</span>
               </div>
               <div className="flex items-center gap-3">

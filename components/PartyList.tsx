@@ -47,8 +47,9 @@ const PartyList: React.FC<PartyListProps> = ({ parties, onSelectParty }) => {
                   onChange={(e) => setSearchTerm(e.target.value)}
                />
             </div>
-            <div className="text-gray-500 text-sm">
-              Total de <span className="font-bold">{filteredParties.length}</span> Partido(s) em Formação
+            <div className="text-gray-500 text-sm flex items-center gap-2">
+              <img src="https://flagcdn.com/w40/br.png" alt="Brasil" className="w-5 h-auto shadow-sm" />
+              <span>Total de <span className="font-bold">{filteredParties.length}</span> Partido(s) em Formação</span>
             </div>
           </div>
         </div>
